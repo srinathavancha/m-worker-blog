@@ -31,7 +31,7 @@ public class Item {
 	
 	private String title;
 	
-	private String url;
+	private String link;
 	
 	private String description;
 	
@@ -86,17 +86,17 @@ public class Item {
 	}
 
 	/**
-	 * @return the url
+	 * @return the link
 	 */
-	public String getUrl() {
-		return url;
+	public String getLink() {
+		return link;
 	}
 
 	/**
-	 * @param url the url to set
+	 * @param link the link to set
 	 */
-	public void setUrl(String url) {
-		this.url = url;
+	public void setLink(String link) {
+		this.link = link;
 	}
 
 	/**
