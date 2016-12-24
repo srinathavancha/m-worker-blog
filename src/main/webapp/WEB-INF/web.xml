@@ -10,6 +10,7 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+	<!--   presentation layer is defined in this servlet  -->
 	<servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -22,5 +23,16 @@
         <url-pattern>*.htm</url-pattern>
         <url-pattern>*.json</url-pattern>
         <url-pattern>*.xml</url-pattern>
-    </servlet-mapping>  
+    </servlet-mapping>
+    
+	<!--     REST of context is  defined in this context-->
+	<!-- Spring will read the contents of /WEB-INF/applicationContext.xml
+		and it will create an other spring context, because
+		we can have multiple servlets/ multiple context defined by Dispatcher Servlet or other servlets, but
+		in a typical web application we usually have single service repository layer,
+		Single connection to database which can be pooled and so on.
+	 -->
+    <listener>
+	    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>  
 </web-app>
