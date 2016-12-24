@@ -6,8 +6,16 @@
   <definition name="common" template="/WEB-INF/layout/classic.jsp">
     <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
   </definition>
+	<!--   index definition -->
   <definition name="index" extends="common">
   	<put-attribute name="title" value="Work Blogger"></put-attribute>
   	<put-attribute name="body" value="/WEB-INF/jsp/index.jsp"></put-attribute>
+  	<put-attribute name="current" value="index"></put-attribute>
+  </definition>
+	<!--   users list definition -->
+  <definition name="users" extends="common">
+  	<put-attribute name="title" value="Users"></put-attribute>
+  	<put-attribute name="body" value="/WEB-INF/jsp/users.jsp"></put-attribute>
+  	<put-attribute name="current" value="users"></put-attribute>
   </definition>
 </tiles-definitions>
