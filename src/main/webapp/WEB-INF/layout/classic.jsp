@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -29,25 +29,26 @@
 
 				<!-- Static navbar -->
 				<nav class="navbar navbar-default">
-				<div class="container-fluid">
-						<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-										aria-expanded="false" aria-controls="navbar">
-										<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
-												class="icon-bar"></span>
-								</button>
-								<a class="navbar-brand" href="#">Work Blog</a>
+						<div class="container-fluid">
+								<div class="navbar-header">
+										<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+												aria-expanded="false" aria-controls="navbar">
+												<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+										</button>
+										<a class="navbar-brand" href="#">Work Blog</a>
+								</div>
+								<div id="navbar" class="navbar-collapse collapse">
+										<ul class="nav navbar-nav">
+												<li class="active"><a href='<spring:url value="/"></spring:url>'>Home</a></li>
+												<li><a href="#">About</a></li>
+												<li><a href="#">Contact</a></li>
+										</ul>
+								</div>
+								<!--/.nav-collapse -->
 						</div>
-						<div id="navbar" class="navbar-collapse collapse">
-								<ul class="nav navbar-nav">
-										<li class="active"><a href='<spring:url value="/"></spring:url>'>Home</a></li>
-										<li><a href="#">About</a></li>
-										<li><a href="#">Contact</a></li>
-								</ul>
-						</div>
-						<!--/.nav-collapse -->
-				</div>
-				<!--/.container-fluid --> </nav>
+						<!--/.container-fluid -->
+				</nav>
 				<tiles:insertAttribute name="body"></tiles:insertAttribute>
 				<br> <br>
 				<center>
