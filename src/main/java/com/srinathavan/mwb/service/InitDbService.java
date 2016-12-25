@@ -94,10 +94,10 @@ public class InitDbService {
 		itemRepository.save(item1);
 
 		Item item2 = new Item();
-		item1.setBlog(blogTutor);
-		item1.setTitle("second");
-		item1.setLink("http://www.welcometonightvale.com");
-		item1.setPublishedDate(new Date());
+		item2.setBlog(blogTutor);
+		item2.setTitle("second");
+		item2.setLink("http://www.welcometonightvale.com");
+		item2.setPublishedDate(new Date());
 		itemRepository.save(item2);
 
 	}

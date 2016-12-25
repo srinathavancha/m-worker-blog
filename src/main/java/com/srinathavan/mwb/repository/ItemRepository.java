@@ -9,8 +9,12 @@
  */
 package com.srinathavan.mwb.repository;
 
+import java.util.List;
+
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.srinathavan.mwb.entity.Blog;
 import com.srinathavan.mwb.entity.Item;
 
 /**
@@ -21,4 +25,17 @@ import com.srinathavan.mwb.entity.Item;
  */
 public interface ItemRepository extends JpaRepository<Item	, Integer> {
 
+	/**
+	 * @param blog
+	 * @return
+	 */
+	List<Item> findByBlog(Blog blog);
+	
+	/**
+	 * 
+	 * @param blog
+	 * @param pageable
+	 * @return
+	 */
+	List<Item> findByBlog(Blog blog, Pageable pageable);
 }

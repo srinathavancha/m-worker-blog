@@ -47,7 +47,9 @@ public class UserController {
 	 */
 	@RequestMapping("/users/{id}")
 	public String userDetail(Model model, @PathVariable int id){
-		model.addAttribute("user", userService.findOne(id));
+		/*model.addAttribute("user", userService.findOne(id));*/
+		/*implementing lazy loading with repository*/
+		model.addAttribute("user", userService.findOneWithBlog(id));
 		return "user-detail";
 	}
 }

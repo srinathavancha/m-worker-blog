@@ -50,7 +50,7 @@
 	 -->
 	 
 	<!-- 	 Easy Approach Start-->
-	<filter>
+<!-- 	<filter>
 		<filter-name>oemInViewFilter</filter-name>
 		<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
 		<init-param>
@@ -61,6 +61,6 @@
 	<filter-mapping>
 		<filter-name>oemInViewFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 	<!-- 	 Easy Approach End-->
 </web-app>

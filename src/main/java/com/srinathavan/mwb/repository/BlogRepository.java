@@ -9,9 +9,12 @@
  */
 package com.srinathavan.mwb.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.srinathavan.mwb.entity.Blog;
+import com.srinathavan.mwb.entity.User;
 
 /**
  * @author Avancha
@@ -20,5 +23,13 @@ import com.srinathavan.mwb.entity.Blog;
  * primary field variable
  */
 public interface BlogRepository extends JpaRepository<Blog, Integer> {
-
+	/**
+	 * User is an attribute in Blog entity
+	 * Spring Data JPA will generate implementation of this method
+	 * which will be select all blogs which are associate with this user entity.
+	 * 
+	 * @param user
+	 * @return
+	 */
+	List<Blog> findByUser(User user	);
 }
