@@ -3,8 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
+<%@ include file="taglib.jsp" %>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -24,7 +23,6 @@
 <title><tiles:getAsString name="title"></tiles:getAsString></title>
 </head>
 <body>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx" %>
 <tilesx:useAttribute name="current"/>
 
 		<div class="container">
