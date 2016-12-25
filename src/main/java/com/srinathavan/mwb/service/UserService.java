@@ -73,5 +73,13 @@ public class UserService {
 		user.setBlogs(blogs);
 		return user;
 	}
+
+	/**
+	 * Save entity
+	 * @param user
+	 */
+	public void save(User user) {
+		userRepository.save(user);
+	}
 	
 }

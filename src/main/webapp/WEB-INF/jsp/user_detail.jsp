@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../layout/taglib.jsp" %>
 
-	<h1>${user.name}</h1>
+	<h1>${user.name} ${user.email }</h1>
 	
 	<c:forEach items="${user.blogs }" var="blog">
 		<h1>${blog.name }</h1>

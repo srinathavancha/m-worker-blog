@@ -12,9 +12,12 @@ package com.srinathavan.mwb.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.srinathavan.mwb.entity.User;
 import com.srinathavan.mwb.service.UserService;
 
 /**
@@ -27,6 +30,16 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	/**
+	 * we bind this object to form commandLine
+	 * Which will create a object of type user
+	 * this way object is bound to spring controller using @Modelattribute
+	 * @return
+	 */
+	@ModelAttribute("user")
+	public User construct(){
+		return new User();
+	}
 	/**
 	 * Method to fetch all the users and redirect to users view file with model data 
 	 * list of users
@@ -51,5 +64,16 @@ public class UserController {
 		/*implementing lazy loading with repository*/
 		model.addAttribute("user", userService.findOneWithBlog(id));
 		return "user-detail";
+	}
+	
+	@RequestMapping("/register")
+	public String showRegister(Model model){
+		return "user-register";
+	}
+	
+	@RequestMapping(value="/register", method=RequestMethod.POST)
+	public String doRegister(@ModelAttribute("user") User user){
+		userService.save(user);
+		return "user-register";
 	}
 }
