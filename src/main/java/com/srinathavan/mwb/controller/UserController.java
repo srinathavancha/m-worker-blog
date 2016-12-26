@@ -71,6 +71,12 @@ public class UserController {
 		return "user-register";
 	}
 	
+	/**
+	 * Spring takes the data inserted into form and
+	 * create User object data and put into model object
+	 * @param user
+	 * @return
+	 */
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String doRegister(@ModelAttribute("user") User user){
 		userService.save(user);

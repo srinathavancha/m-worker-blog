@@ -31,6 +31,7 @@ import com.srinathavan.mwb.repository.UserRepository;
  *
  */
 @Service
+@Transactional
 public class UserService {
 	@Autowired
 	private UserRepository userRepository;
