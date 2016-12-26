@@ -6,7 +6,7 @@
 	
 	<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
+  Create Blog
 </button>
 
 <!-- Modal -->
@@ -15,7 +15,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Create Blog</h4>
+        <h4 class="modal-title" id="myModalLabel">New Blog</h4>
       </div>
       <div class="modal-body">
         ...

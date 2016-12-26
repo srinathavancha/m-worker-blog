@@ -30,6 +30,14 @@ form {
 		padding: 15px;
 		margin: 0 auto;
 }
+.bg-strip {
+	padding: 5px;
+	background: none;
+	border-bottom: 5px solid #dbdbdb ;
+}
+.alert {
+    padding: 6px 12px;
+}
 </style>
 </head>
 <body>

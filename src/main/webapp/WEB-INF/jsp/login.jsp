@@ -1,49 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<style>
-.form-signin .form-signin-heading, .form-signin .checkbox {
-		margin-bottom: 10px;
-}
-
-.form-signin .form-control {
-		position: relative;
-		height: auto;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		padding: 10px;
-		font-size: 16px;
-}
-
-.form-signin .form-control:focus {
-		z-index: 2;
-}
-
-.form-signin input[type="email"] {
-		margin-bottom: -1px;
-		border-bottom-right-radius: 0;
-		border-bottom-left-radius: 0;
-}
-
-.form-signin input[type="password"] {
-		margin-bottom: 10px;
-		border-top-left-radius: 0;
-		border-top-right-radius: 0;
-}
-</style>
 <div class="container">
-
-		<form class="form-signin" role="form" action="/j_spring_security_check" method="POST">
-				<h2 class="form-signin-heading">Please sign in</h2>
+		<form class="form-signin form-horizontal" role="form" action="/j_spring_security_check" method="POST">
+				<h2 class="form-signin-heading  bg-strip">Sign in</h2>
 				<!-- 				username -->
-				<label for="username" class="sr-only">Username</label> 
-				<input name="j_username" type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+				<div class="form-group">
+						<label for="username" class="sr-only">Username</label>
+						<div class="col-sm-12">
+								<input class="form-control" name="j_username" type="text" id="username" class="form-control" placeholder="Username" required
+										autofocus>
+						</div>
+				</div>
 				<!-- 				password -->
-				<label for="inputPassword" class="sr-only">Password</label> 
-				<input name="j_password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				<div class="form-group">
+						<label for="inputPassword" class="sr-only">Password</label>
+						<div class="col-sm-12">
+								<input class="form-control" name="j_password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+						</div>
+				</div>
 				<!-- 				submit -->
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				<div class="form-group">
+						<div class="col-sm-12">
+								<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+						</div>
+				</div>
 		</form>
-
 </div>
 <!-- /container -->
 
