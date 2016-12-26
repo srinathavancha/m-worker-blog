@@ -12,16 +12,27 @@
 				<!-- application specific pattern urls to intercept -->
 				<intercept-url pattern="/users**" access="hasRole('ROLE_ADMIN')" />
 				<intercept-url pattern="/users/**" access="hasRole('ROLE_ADMIN')" />
+				<intercept-url pattern="/account**" access="hasRole('ROLE_USER')" />
 				<!-- custom form for login -->
-				<form-login login-page="/login.html" />
+				<form-login login-page="/login.html" authentication-failure-url="/login.html?error=true"
+						default-target-url="/" />
 				<!-- logout actions -->
-				<logout invalidate-session="true" logout-url="/logout" />
+				<logout invalidate-session="true" logout-url="/logout" logout-success-url="/login.html" />
+				<!-- for deny page presenting -->
+				<access-denied-handler error-page="/denied.html"/>
 		</http>
+
+		<!-- which roles does user have -->
 		<authentication-manager>
 				<authentication-provider>
-						<user-service>
-								<user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
-						</user-service>
+		<!-- password encrypt type bcrypt -->
+				<password-encoder hash="bcrypt"></password-encoder>
+						<jdbc-user-service data-source-ref="dataSource"
+								authorities-by-username-query="select user.name, role.name from user
+														join user_role on user.id = user_role.users_id
+														join role on user_role.roles_id = role.id
+														where user.name = ?"
+								users-by-username-query="select name,password,enabled from user where name = ?" />
 				</authentication-provider>
 		</authentication-manager>
 </beans:beans>

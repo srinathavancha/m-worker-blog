@@ -9,6 +9,8 @@
  */
 package com.srinathavan.mwb.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,6 +68,11 @@ public class UserController {
 		return "user-detail";
 	}
 	
+	/**
+	 * show registration screen
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/register")
 	public String showRegister(Model model){
 		return "user-register";
@@ -80,6 +87,20 @@ public class UserController {
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String doRegister(@ModelAttribute("user") User user){
 		userService.save(user);
-		return "user-register";
+		return "redirect:/register.html?success=true";
+	}
+	
+	/**
+	 * Mehod to handle my account details
+	 * 
+	 * @param model
+	 * @param principle
+	 * @return
+	 */
+	@RequestMapping("/account")
+	public String showAccount(Model model, Principal principle){
+		String name = principle.getName();
+		model.addAttribute("user", userService.findOneWithBlog(name));
+		return "my-account";
 	}
 }

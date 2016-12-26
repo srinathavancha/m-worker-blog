@@ -9,6 +9,7 @@
  */
 package com.srinathavan.mwb.service;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,14 +17,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.srinathavan.mwb.entity.Blog;
 import com.srinathavan.mwb.entity.BlogEntry;
+import com.srinathavan.mwb.entity.Role;
 import com.srinathavan.mwb.entity.User;
 import com.srinathavan.mwb.repository.BlogRepository;
 import com.srinathavan.mwb.repository.ItemRepository;
+import com.srinathavan.mwb.repository.RoleRepository;
 import com.srinathavan.mwb.repository.UserRepository;
 
 /**
@@ -35,6 +39,9 @@ import com.srinathavan.mwb.repository.UserRepository;
 public class UserService {
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private RoleRepository roleRepository;
 	
 	@Autowired
 	private BlogRepository blogRepository;
@@ -80,7 +87,25 @@ public class UserService {
 	 * @param user
 	 */
 	public void save(User user) {
+		//enable user
+		user.setEnabled(Boolean.TRUE);
+		//encode password
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		user.setPassword(encoder.encode(user.getPassword()));
+		//assign user role
+		List<Role> roles = new ArrayList<Role>();
+		roles.add(roleRepository.findByName("ROLE_USER"));
+		user.setRoles(roles);		
 		userRepository.save(user);
+	}
+
+	/**
+	 * @param name
+	 * @return
+	 */
+	public User findOneWithBlog(String name) {
+		User user = userRepository.findByName(name);
+		return findOneWithBlog(user.getId());
 	}
 	
 }

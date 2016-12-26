@@ -21,4 +21,10 @@ import com.srinathavan.mwb.entity.Role;
  */
 public interface RoleRepository extends JpaRepository<Role	, Integer> {
 
+	/**
+	 * @param name
+	 * @return
+	 */
+	Role findByName(String name);
+
 }

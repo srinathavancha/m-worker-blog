@@ -24,14 +24,28 @@
 				<put-attribute name="body" value="/WEB-INF/jsp/user_detail.jsp"></put-attribute>
 				<put-attribute name="current" value="users"></put-attribute>
 		</definition>
+		<!-- my account page -->
+		<definition name="my-account" extends="common">
+				<put-attribute name="title" value="User detail"></put-attribute>
+				<put-attribute name="body" value="/WEB-INF/jsp/user_detail.jsp"></put-attribute>
+				<put-attribute name="current" value="account"></put-attribute>
+		</definition>
+		<!-- registration page -->
 		<definition name="user-register" extends="common">
 				<put-attribute name="title" value="Register"></put-attribute>
 				<put-attribute name="body" value="/WEB-INF/jsp/user_register.jsp"></put-attribute>
 				<put-attribute name="current" value="register"></put-attribute>
 		</definition>
+		<!-- login page -->
 		<definition name="login" extends="common">
 				<put-attribute name="title" value="Login"></put-attribute>
 				<put-attribute name="body" value="/WEB-INF/jsp/login.jsp"></put-attribute>
 				<put-attribute name="current" value="login"></put-attribute>
+		</definition>
+		<!-- access denied page -->
+		<definition name="denied" extends="common">
+				<put-attribute name="title" value="UnAuthorized Access Denied"></put-attribute>
+				<put-attribute name="body" value="/WEB-INF/jsp/denied.jsp"></put-attribute>
+				<put-attribute name="current" value=""></put-attribute>
 		</definition>
 </tiles-definitions>

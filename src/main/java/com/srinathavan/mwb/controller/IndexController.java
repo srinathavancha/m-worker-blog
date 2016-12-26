@@ -32,4 +32,8 @@ public class IndexController {
 		return "index";
 	}
 
+	@RequestMapping("/denied")
+	public String denied() {
+		return "denied";
+	}
 }

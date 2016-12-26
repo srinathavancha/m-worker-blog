@@ -35,6 +35,7 @@ public class User {
 	
 	private String password;
 	
+	private boolean enabled;
 	/**
 	 * One user has many roles
 	 * Many roles can have same user
@@ -129,6 +130,20 @@ public class User {
 	 */
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the enabled
+	 */
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	/**
+	 * @param enabled the enabled to set
+	 */
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 	
 }

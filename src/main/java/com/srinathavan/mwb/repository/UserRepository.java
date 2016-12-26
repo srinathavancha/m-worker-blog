@@ -21,4 +21,10 @@ import com.srinathavan.mwb.entity.User;
  */
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+	/**
+	 * @param name
+	 * @return
+	 */
+	User findByName(String name);
+
 }
