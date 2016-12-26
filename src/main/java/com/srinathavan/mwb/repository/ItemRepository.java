@@ -15,21 +15,21 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.srinathavan.mwb.entity.Blog;
-import com.srinathavan.mwb.entity.Item;
+import com.srinathavan.mwb.entity.BlogEntry;
 
 /**
  * @author Avancha
- * In Spring every repository works with each entiry
+ * In Spring every repository works with each entity
  * Every repository extends {@link JpaRepository} of type entity and 
  * primary field variable
  */
-public interface ItemRepository extends JpaRepository<Item	, Integer> {
+public interface ItemRepository extends JpaRepository<BlogEntry	, Integer> {
 
 	/**
 	 * @param blog
 	 * @return
 	 */
-	List<Item> findByBlog(Blog blog);
+	List<BlogEntry> findByBlog(Blog blog);
 	
 	/**
 	 * 
@@ -37,5 +37,5 @@ public interface ItemRepository extends JpaRepository<Item	, Integer> {
 	 * @param pageable
 	 * @return
 	 */
-	List<Item> findByBlog(Blog blog, Pageable pageable);
+	List<BlogEntry> findByBlog(Blog blog, Pageable pageable);
 }

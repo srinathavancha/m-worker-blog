@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.srinathavan.mwb.entity.Blog;
-import com.srinathavan.mwb.entity.Item;
+import com.srinathavan.mwb.entity.BlogEntry;
 import com.srinathavan.mwb.entity.Role;
 import com.srinathavan.mwb.entity.User;
 import com.srinathavan.mwb.repository.BlogRepository;
@@ -86,14 +86,14 @@ public class InitDbService {
 		blogTutor.setUser(userAdmin);
 		blogRepository.save(blogTutor);
 
-		Item item1 = new Item();
+		BlogEntry item1 = new BlogEntry();
 		item1.setBlog(blogTutor);
 		item1.setTitle("first");
 		item1.setLink("http://www.welcometonightvale.com");
 		item1.setPublishedDate(new Date());
 		itemRepository.save(item1);
 
-		Item item2 = new Item();
+		BlogEntry item2 = new BlogEntry();
 		item2.setBlog(blogTutor);
 		item2.setTitle("second");
 		item2.setLink("http://www.welcometonightvale.com");

@@ -40,7 +40,7 @@ public class Blog {
 	private User user;
 	
 	@OneToMany(mappedBy="blog")
-	private List<Item> items;
+	private List<BlogEntry> blogEntries;
 
 	/**
 	 * @return the id
@@ -99,17 +99,17 @@ public class Blog {
 	}
 
 	/**
-	 * @return the items
+	 * @return the blogEntries
 	 */
-	public List<Item> getItems() {
-		return items;
+	public List<BlogEntry> getItems() {
+		return blogEntries;
 	}
 
 	/**
-	 * @param items the items to set
+	 * @param blogEntries the blogEntries to set
 	 */
-	public void setItems(List<Item> items) {
-		this.items = items;
+	public void setItems(List<BlogEntry> blogEntries) {
+		this.blogEntries = blogEntries;
 	}
 	
 }

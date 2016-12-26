@@ -5,7 +5,7 @@
 	http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="m-worker-blog">
 		<class>com.srinathavan.mwb.entity.Blog</class>
-		<class>com.srinathavan.mwb.entity.Item</class>
+		<class>com.srinathavan.mwb.entity.BlogEntry</class>
 		<class>com.srinathavan.mwb.entity.Role</class>
 		<class>com.srinathavan.mwb.entity.User</class>
 	</persistence-unit>

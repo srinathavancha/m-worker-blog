@@ -23,7 +23,7 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
-public class Item {
+public class BlogEntry {
 
 	@Id
 	@GeneratedValue

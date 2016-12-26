@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.srinathavan.mwb.entity.Blog;
-import com.srinathavan.mwb.entity.Item;
+import com.srinathavan.mwb.entity.BlogEntry;
 import com.srinathavan.mwb.entity.User;
 import com.srinathavan.mwb.repository.BlogRepository;
 import com.srinathavan.mwb.repository.ItemRepository;
@@ -67,9 +67,9 @@ public class UserService {
 		List<Blog> blogs = blogRepository.findByUser(user);
 		for (Iterator iterator = blogs.iterator(); iterator.hasNext();) {
 			Blog blog = (Blog) iterator.next();
-			/*List<Item> items = itemRepository.findByBlog(blog);*/
-			List<Item> items = itemRepository.findByBlog(blog, (Pageable) new PageRequest(0, 10, Direction.DESC, "publishedDate"));
-			blog.setItems(items);
+			/*List<BlogEntry> items = itemRepository.findByBlog(blog);*/
+			List<BlogEntry> blogEntries = itemRepository.findByBlog(blog, (Pageable) new PageRequest(0, 10, Direction.DESC, "publishedDate"));
+			blog.setItems(blogEntries);
 		}
 		user.setBlogs(blogs);
 		return user;

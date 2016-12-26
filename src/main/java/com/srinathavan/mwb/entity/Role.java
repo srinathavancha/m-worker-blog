@@ -14,7 +14,6 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 /**
@@ -29,7 +28,7 @@ public class Role {
 	private Integer id;
 	
 	private String name;
-
+	
 	/**
 	 * One user can have many roles
 	 * Many users can have same role

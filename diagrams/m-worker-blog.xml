@@ -11,7 +11,7 @@
 	</entity>
 
 	<entity>
-		<entity-name>com.srinathavan.mwb.entity.Item</entity-name>
+		<entity-name>com.srinathavan.mwb.entity.BlogEntry</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>206</entity-height>
 		<entity-X-Coordinate>568</entity-X-Coordinate>
