@@ -37,7 +37,7 @@ public class Role {
 	 * At one side there must be join table
 	 * 
 	 */
-	@ManyToMany
+	@ManyToMany(mappedBy="roles")
 	private List<User> users;
 	/**
 	 * @return the users

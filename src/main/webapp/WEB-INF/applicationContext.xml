@@ -41,4 +41,6 @@
 	</bean>
 	
 	<jpa:repositories base-package="com.srinathavan.mwb.repository" entity-manager-factory-ref="emf"></jpa:repositories>
+	
+	<import resource="security.xml"/>
 </beans>
