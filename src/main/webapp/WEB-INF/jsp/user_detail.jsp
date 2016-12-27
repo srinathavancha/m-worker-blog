@@ -4,6 +4,11 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$('#blog-tabs a:first').tab('show') // Select first tab
+		$('.action-remove-blog').click(function(e){
+			e.preventDefault();
+			$('#modal-remove-blog .action-confirm-removeblog').attr('href', $(this).attr('href'));
+			$('#modal-remove-blog').modal()
+		});
 	});
 	</script>
 	<h1>${user.name} ${user.email }</h1>
@@ -69,7 +74,7 @@
 					<div role="tabpanel" class="tab-pane" id="blog-${blog.id }">
 						<h1>${blog.name }</h1>
 						<p>
-						<a href='<spring:url value="/blog/remove/${blog.id}.html"></spring:url>' class="btn btn-danger">Remove</a>
+						<a href='<spring:url value="/blog/remove/${blog.id}.html"></spring:url>' class="btn btn-danger action-remove-blog">Remove</a>
 						${blog.url }
 						</p>
 
@@ -112,3 +117,23 @@
 	</c:otherwise>
 	</c:choose>
 	
+	
+	
+<!-- Modal -->
+<div class="modal fade" id="modal-remove-blog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Remove Blog</h4>
+      </div>
+      <div class="modal-body">
+        Confirm to remove blog ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-danger action-confirm-removeblog">Ok</a>
+      </div>
+    </div>
+  </div>
+</div>
