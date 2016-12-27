@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../layout/taglib.jsp" %>
-
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#blog-tabs a:first').tab('show') // Select first tab
+	});
+	</script>
 	<h1>${user.name} ${user.email }</h1>
 	
 	<!-- Button trigger modal -->
@@ -48,24 +52,63 @@
 	</div>
 	</form:form>
 
-	<c:forEach items="${user.blogs }" var="blog">
-		<h1>${blog.name }</h1>
-		<p>${blog.url }</p>
+	<c:choose>
+	<c:when test="${not empty user.blogs}">
+		<div>
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs" role="tablist" id="blog-tabs">
+		  	<c:forEach items="${user.blogs }" var="blog">
+		    	<li role="presentation"><a href="#blog-${blog.id}" 
+		    	aria-controls="blog-${blog.id}" role="tab" data-toggle="tab">${blog.name}</a></li>
+		    </c:forEach>
+		  </ul>
 		
-		<table class="table table-bordered table-hover table-stripped">
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>URL</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${blog.items }" var="item">
-					<tr>
-						<td>${item.title}</td>
-						<td>${item.link}</td>
-					</tr>				
-				</c:forEach>
-			</tbody>
-		</table>
-	</c:forEach>
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+				<c:forEach items="${user.blogs }" var="blog">
+					<div role="tabpanel" class="tab-pane" id="blog-${blog.id }">
+						<h1>${blog.name }</h1>
+						<p>
+						<a href='<spring:url value="/blog/remove/${blog.id}.html"></spring:url>' class="btn btn-danger">Remove</a>
+						${blog.url }
+						</p>
+
+						<c:choose>
+						<c:when test="${not empty blog.items}">						
+							<table class="table table-bordered table-hover table-stripped">
+								<thead>
+									<tr>
+										<th>Title</th>
+										<th>URL</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${blog.items }" var="item">
+										<tr>
+											<td>${item.title}</td>
+											<td>${item.link}</td>
+										</tr>				
+									</c:forEach>
+								</tbody>
+							</table>
+						</c:when>
+						<c:otherwise>
+							<div class="bg-message">
+								<div class="title-bar">Message</div>
+								<div class="title-message">No Blog Entries.</div>
+							</div>
+						</c:otherwise>
+						</c:choose>
+					</div>
+				</c:forEach>	  
+		  </div>
+		</div>		
+	</c:when>
+	<c:otherwise>
+		<div class="bg-message">
+			<div class="title-bar">Message</div>
+			<div class="title-message">No Blogs.</div>
+		</div>
+	</c:otherwise>
+	</c:choose>
+	

@@ -65,6 +65,11 @@ public class InitDbService {
 	 */
 	@PostConstruct
 	public void init() {
+
+		/*encoding password by using bcrypt encoder*/
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		List<Role> roles = new ArrayList<Role>();
+		
 		Role roleUser = new Role();
 		roleUser.setName("ROLE_USER");
 		roleRepository.save(roleUser);
@@ -76,10 +81,9 @@ public class InitDbService {
 		User userAdmin = new User();
 		userAdmin.setName("admin");
 		/*encoding password by using bcrypt encoder*/
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		userAdmin.setPassword(encoder.encode("admin"));
 		userAdmin.setEnabled(Boolean.TRUE);
-		List<Role> roles = new ArrayList<Role>();
+		//set roles
 		roles.add(roleUser);
 		roles.add(roleAdmin);
 		userAdmin.setRoles(roles);
@@ -104,6 +108,15 @@ public class InitDbService {
 		item2.setLink("http://www.welcometonightvale.com");
 		item2.setPublishedDate(new Date());
 		itemRepository.save(item2);
+		
+		User testUser1 = new User();
+		testUser1.setName("testuser1");
+		testUser1.setPassword(encoder.encode("testuser1"));
+		testUser1.setEnabled(Boolean.TRUE);
+		roles.clear();
+		roles.add(roleUser);
+		testUser1.setRoles(roles);
+		userRepository.save(testUser1);
 
 	}
 }

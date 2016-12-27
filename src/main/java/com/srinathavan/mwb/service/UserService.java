@@ -71,14 +71,16 @@ public class UserService {
 	@Transactional
 	public User findOneWithBlog(int id) {
 		User user = findOne(id);
-		List<Blog> blogs = blogRepository.findByUser(user);
-		for (Iterator iterator = blogs.iterator(); iterator.hasNext();) {
-			Blog blog = (Blog) iterator.next();
-			/*List<BlogEntry> items = itemRepository.findByBlog(blog);*/
-			List<BlogEntry> blogEntries = itemRepository.findByBlog(blog, (Pageable) new PageRequest(0, 10, Direction.DESC, "publishedDate"));
-			blog.setItems(blogEntries);
+		if(null != user){
+			List<Blog> blogs = blogRepository.findByUser(user);
+			for (Iterator iterator = blogs.iterator(); iterator.hasNext();) {
+				Blog blog = (Blog) iterator.next();
+				/*List<BlogEntry> items = itemRepository.findByBlog(blog);*/
+				List<BlogEntry> blogEntries = itemRepository.findByBlog(blog, (Pageable) new PageRequest(0, 10, Direction.DESC, "publishedDate"));
+				blog.setItems(blogEntries);
+			}
+			user.setBlogs(blogs);			
 		}
-		user.setBlogs(blogs);
 		return user;
 	}
 
@@ -106,6 +108,13 @@ public class UserService {
 	public User findOneWithBlog(String name) {
 		User user = userRepository.findByName(name);
 		return findOneWithBlog(user.getId());
+	}
+
+	/**
+	 * @param id
+	 */
+	public void delete(int id) {
+		userRepository.delete(id);
 	}
 	
 }

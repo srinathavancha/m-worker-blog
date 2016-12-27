@@ -38,6 +38,20 @@ form {
 .alert {
     padding: 6px 12px;
 }
+.bg-message{
+	margin: 5px;
+    border: 1px solid #cfcfcf;
+    font-weight: bold;
+    color: rgba(217, 79, 130, 0.95);	
+}
+.title-bar {
+    padding: 5px;
+    background: #cfc;
+}
+.title-message{
+    text-align: center;
+    padding: 5px;	
+}
 </style>
 </head>
 <body>
