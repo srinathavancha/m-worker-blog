@@ -6,6 +6,9 @@
            http://www.springframework.org/schema/security
            http://www.springframework.org/schema/security/spring-security.xsd">
 
+		<!-- by default these are disabled -->
+		<global-method-security pre-post-annotations="enabled"></global-method-security>
+
 		<!-- user expressions to write methods on access attributes which is more flexible -->
 		<!-- other wise simply write role name i.e "ROLE_ADMIN" -->
 		<http use-expressions="true">
