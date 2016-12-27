@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="container">
-		<form class="form-signin form-horizontal" role="form" action="/j_spring_security_check" method="POST">
+		<form class="form-signin form-horizontal" role="form" action="j_spring_security_check" method="POST">
 				<h2 class="form-signin-heading  bg-strip">Sign in</h2>
 				<!-- 				username -->
 				<div class="form-group">
